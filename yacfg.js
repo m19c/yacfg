@@ -102,7 +102,7 @@ yacfg.init = function init(options) {
       purge(fileName);
     }
 
-    stack.push(require(fileName));
+    stack.unshift(require(fileName));
   });
 
   config = (stack.length > 1) ? defaults.apply(defaults, stack) : stack[0];

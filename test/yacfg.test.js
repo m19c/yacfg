@@ -45,10 +45,20 @@ describe('yacfg', function describeYacfg() {
       environment: 'test'
     });
 
-    yacfg.config.port.should.equal(1);
+    yacfg.config.port.should.equal(3);
     yacfg.config.productionOnly.should.be.ok();
     yacfg.config.developmentOnly.should.be.ok();
     yacfg.config.testOnly.should.be.ok();
+  });
+
+  it('merges the configuration `development` with `production`', function() {
+    yacfg.init({
+      path: resourcePath,
+      environment: 'development',
+      uncached: true
+    });
+
+    yacfg.config.port.should.equal(2);
   });
 
   it('ignore changes if the configuration is freezed', function() {
