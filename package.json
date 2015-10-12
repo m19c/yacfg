@@ -1,0 +1,58 @@
+{
+  "name": "yacfg",
+  "version": "1.0.0",
+  "description": "...",
+  "main": "yacfg.js",
+  "author": {
+    "name": "Marc Binder",
+    "email": "marcandrebinder@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/MrBoolean/yacfg/issues",
+    "email": "marcandrebinder@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MrBoolean/yacfg.git"
+  },
+  "peerDependencies": {
+    "tb": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^4.1.3",
+    "eslint": "^1.6.0",
+    "eslint-config-airbnb": "^0.1.0",
+    "eslint-plugin-react": "^3.5.1",
+    "gulp": "^3.9.0",
+    "gulp-codeclimate-reporter": "^1.0.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-istanbul": "^0.10.1",
+    "gulp-mocha": "^2.1.3",
+    "mocha": "^2.3.3",
+    "pre-commit": "^1.1.1",
+    "should": "^7.1.0"
+  },
+  "dependencies": {
+    "deep-freeze-node": "^1.1.0",
+    "deep-property": "^1.1.0",
+    "lodash.defaultsdeep": "^3.10.0",
+    "lodash.take": "^3.0.0"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/gulp"
+  },
+  "keywords": [
+    "config",
+    "configuration",
+    "cfg",
+    "options",
+    "environment"
+  ],
+  "pre-commit": [
+    "test"
+  ],
+  "license": {
+    "type": "MIT",
+    "url": "http://www.opensource.org/licenses/mit-license.php"
+  }
+}
