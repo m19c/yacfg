@@ -1,7 +1,7 @@
 {
   "name": "yacfg",
   "version": "1.0.0",
-  "description": "Yet another config",
+  "description": "yacfg organizes the configuration for different deployment environments.",
   "main": "yacfg.js",
   "author": {
     "name": "Marc Binder",
