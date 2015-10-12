@@ -37,7 +37,7 @@ gulp.task('lint', function lint() {
 
 gulp.task('codeclimate', function sendToCodeclimate() {
   return gulp
-    .src(['dist/report/lcov.info'], { read: false })
+    .src(['dist/test-report/lcov.info'], { read: false })
     .pipe(codeclimate({
       token: 'f33865ded01b9dbd0f27e2b9eaed53e9e8d8e8396fea403476c03f079021dc9e'
     }))
