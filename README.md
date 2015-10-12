@@ -9,6 +9,12 @@
 ## Introduction
 `yacfg` organizes the configuration for different deployment environments (e.g. `production`, `development` or `test`). It takes care of merging, caching and freezing your configuration (see [Options](#options)).
 
+### Goals
+- Simple
+- Fast
+- Lightweight
+- Tested
+
 ## Install
 ```bash
 npm i --save yacfg
