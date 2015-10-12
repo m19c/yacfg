@@ -51,8 +51,5 @@
   "pre-commit": [
     "test"
   ],
-  "license": {
-    "type": "MIT",
-    "url": "http://www.opensource.org/licenses/mit-license.php"
-  }
+  "license": "MIT"
 }

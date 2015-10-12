@@ -28,7 +28,7 @@ gulp.task('test', ['test.instrument'], function test() {
 
 gulp.task('lint', function lint() {
   return gulp
-    .src(['**/*.js', '!node_modules/**/*'])
+    .src(['yacfg.js', 'test/**/*.js', 'gulpfile.js'])
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError())
