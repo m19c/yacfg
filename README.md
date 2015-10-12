@@ -22,6 +22,16 @@ yacfg.init({
 module.exports = yacfg.config;
 ```
 
+## Options
+Option         | Description                                                             | Default
+-------------- | ----------------------------------------------------------------------- | --------------------------
+`environment`  | The current environment                                                 | `process.env.NODE_ENV || 'production'`
+`path`         | The config base path                                                    | Defaults to `<CWD>/config`
+`sequence`     | The sequence of your configuration e.g. production > development > test | `['production', 'development', 'test']`
+`uncached`     | Force a clean configuration                                             | `false`
+`freeze`       | Freezes the configuration                                               | `false`
+`spec`         | The `tb` spec instance                                                  | `null`
+
 ## Contribute
 You want to help us? Cool, thanks!
 
