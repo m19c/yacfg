@@ -6,6 +6,8 @@
 
 [![NPM](https://nodei.co/npm/yacfg.png?downloads=true)](https://nodei.co/npm/yacfg/)
 
+[Introduction](#introduction) | [Install](#install) | [Quick Start](#quick-start) | [Options](#Options) | [Contribute](#contribute)
+
 ## Introduction
 `yacfg` organizes the configuration for different deployment environments (e.g. `production`, `development` or `test`). It takes care of merging, caching and freezing your configuration (see [Options](#options)).
 
