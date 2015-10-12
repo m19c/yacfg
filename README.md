@@ -2,7 +2,7 @@
 =======
 > yet another config
 
-[![Code Climate](https://codeclimate.com/github/MrBoolean/yacfg/badges/gpa.svg)](https://codeclimate.com/github/MrBoolean/yacfg) [![Test Coverage](https://codeclimate.com/github/MrBoolean/yacfg/badges/coverage.svg)](https://codeclimate.com/github/MrBoolean/yacfg) [![Build Status](https://travis-ci.org/MrBoolean/yacfg.svg?branch=master)](https://travis-ci.org/MrBoolean/yacfg) [![Dependency Status](https://gemnasium.com/MrBoolean/yacfg.svg)](https://gemnasium.com/MrBoolean/yacfg) [![npm](https://img.shields.io/npm/v/yacfg.svg)](https://npmjs.org/yacfg) [![Open The Docs](https://img.shields.io/badge/open-the%20docs-1abc9c.svg)](http://mrboolean.github.io/yacfg/)
+[![Code Climate](https://codeclimate.com/github/MrBoolean/yacfg/badges/gpa.svg)](https://codeclimate.com/github/MrBoolean/yacfg) [![Test Coverage](https://codeclimate.com/github/MrBoolean/yacfg/badges/coverage.svg)](https://codeclimate.com/github/MrBoolean/yacfg) [![Build Status](https://travis-ci.org/MrBoolean/yacfg.svg?branch=master)](https://travis-ci.org/MrBoolean/yacfg) [![Dependency Status](https://gemnasium.com/MrBoolean/yacfg.svg)](https://gemnasium.com/MrBoolean/yacfg) [![npm](https://img.shields.io/npm/v/yacfg.svg)](https://npmjs.org/yacfg)
 
 [![NPM](https://nodei.co/npm/yacfg.png?downloads=true)](https://nodei.co/npm/yacfg/)
 
@@ -13,11 +13,13 @@ npm i --save yacfg
 
 ## Usage
 ```javascript
-var config = require('yacfg');
+var yacfg = require('yacfg');
 
-config.init();
+yacfg.init({
+  path: 'path/to/your/config-directory' // defaults to `process.cwd() + '/config'`
+});
 
-config.my.property;
+module.exports = yacfg.config;
 ```
 
 ## Contribute
