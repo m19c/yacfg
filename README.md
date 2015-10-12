@@ -36,9 +36,8 @@ module.exports = function home(req, res) {
 ```
 
 ### Using your own `config` module
-
+_lib/config.js_
 ```javascript
-// lib/config.js
 var yacfg = require('yacfg');
 
 yacfg.init({
