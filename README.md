@@ -6,13 +6,39 @@
 
 [![NPM](https://nodei.co/npm/yacfg.png?downloads=true)](https://nodei.co/npm/yacfg/)
 
+## Introduction
+`yacfg` organizes the configuration for different deployment environments (e.g. `production`, `development` or `test`). It takes care of merging, caching and freezing your configuration (see [Options](#options)).
+
 ## Install
 ```bash
 npm i --save yacfg
 ```
 
-## Usage
+## Quick Start
+### Using the default behaviour
+_lib/bootstrap.js_
 ```javascript
+var yacfg = require('yacfg');
+
+// init the configuration once
+yacfg.init();
+// ...
+```
+
+_routes/home.js_
+```javascript
+// use your config in each module you want
+var config = require('yacfg').config;
+
+module.exports = function home(req, res) {
+  res.send('Application "' + config.name  + '" running');
+};
+```
+
+### Using your own `config` module
+
+```javascript
+// lib/config.js
 var yacfg = require('yacfg');
 
 yacfg.init({
@@ -20,6 +46,18 @@ yacfg.init({
 });
 
 module.exports = yacfg.config;
+```
+
+### Using your own environment sequence
+Rule: production > staging > development > test
+
+```javascript
+var yacfg = require('yacfg');
+
+yacfg.init({
+  environment: 'development',
+  sequence: ['production', 'staging', 'development', 'test']
+});
 ```
 
 ## Options
