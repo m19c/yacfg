@@ -21,6 +21,7 @@ var yacfg = {};
 function purge(fileName) {
   fileName = require.resolve(fileName);
 
+  /* istanbul ignore else */
   if (require.cache[fileName]) {
     delete require.cache[fileName];
   }

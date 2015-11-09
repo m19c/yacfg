@@ -1,5 +1,4 @@
 var path = require('path');
-var resourcePath = path.join(__dirname, 'resource');
 var yacfg = require('../');
 
 describe('yacfg', function describeYacfg() {
@@ -7,7 +6,6 @@ describe('yacfg', function describeYacfg() {
     (function shouldThrow() {
       yacfg.init({
         environment: 'fake',
-        path: resourcePath,
         sequence: ['production', 'fake']
       });
     }).should.throw(/Cannot find module \'(.*)\'/);
@@ -15,7 +13,6 @@ describe('yacfg', function describeYacfg() {
 
   it('takes a spec file', function specTest(done) {
     yacfg.init({
-      path: resourcePath,
       spec: {
         deploy: function runDeploy(data) {
           data.should.be.ok();
@@ -26,22 +23,21 @@ describe('yacfg', function describeYacfg() {
   });
 
   it('cleans the cache if `uncached` is specified', function cleanCacheTest() {
-    var production = require(path.join(resourcePath, 'production'));
+    var production = require(path.join('..', 'config', 'production'));
 
     production.port = 1337;
 
-    yacfg.init({ path: resourcePath });
+    yacfg.init({});
 
     yacfg.config.port.should.equal(1337);
 
-    yacfg.init({ path: resourcePath, uncached: true });
+    yacfg.init({ uncached: true });
 
     yacfg.config.port.should.equal(1);
   });
 
   it('merges the configuration correctly', function mergeTest() {
     yacfg.init({
-      path: resourcePath,
       environment: 'test'
     });
 
@@ -49,11 +45,18 @@ describe('yacfg', function describeYacfg() {
     yacfg.config.productionOnly.should.be.ok();
     yacfg.config.developmentOnly.should.be.ok();
     yacfg.config.testOnly.should.be.ok();
+    yacfg.config.deepProperty.enabled.should.be.ok();
+    yacfg.config.deepProperty.keys.should.have.length(1);
+    yacfg.config.deepProperty.keys[0].should.equal('test');
+  });
+
+  it('runs without options', function withoutOptionsTest() {
+    yacfg.init();
+    yacfg.config.port.should.equal(1);
   });
 
   it('merges the configuration `development` with `production`', function mergeDevWithProdTest() {
     yacfg.init({
-      path: resourcePath,
       environment: 'development',
       uncached: true
     });
@@ -63,7 +66,6 @@ describe('yacfg', function describeYacfg() {
 
   it('ignore changes if the configuration is freezed', function freezedTest() {
     yacfg.init({
-      path: resourcePath,
       freeze: true
     });
 
@@ -75,7 +77,6 @@ describe('yacfg', function describeYacfg() {
   describe('utility', function utility() {
     beforeEach(function runBeforeEach() {
       yacfg.init({
-        path: resourcePath,
         uncached: true
       });
     });
