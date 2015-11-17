@@ -6,7 +6,7 @@ var codeclimate = require('gulp-codeclimate-reporter');
 
 gulp.task('test.instrument', function instrument() {
   return gulp
-    .src(['!test/**/*', '!gulpfile.js', '!dist/**/*', '!node_modules/**/*', '**/*.js'])
+    .src(['!test/**/*', '!config/**/*', '!gulpfile.js', '!dist/**/*', '!node_modules/**/*', '**/*.js'])
     .pipe(istanbul({
       includeUntested: true
     }))

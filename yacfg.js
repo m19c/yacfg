@@ -82,8 +82,8 @@ yacfg.del = function del(key) {
  */
 yacfg.init = function init(options) {
   var stack = [];
-  var affected;
   var config = {};
+  var affected;
 
   options = defaults(options || {}, {
     environment: process.env.NODE_ENV || 'production',
@@ -93,6 +93,7 @@ yacfg.init = function init(options) {
     uncached: false,
     freeze: false
   });
+
 
   affected = take(options.sequence, options.sequence.indexOf(options.environment) + 1);
 

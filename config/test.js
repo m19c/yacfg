@@ -1,5 +1,5 @@
 module.exports = {
-  port: 3,
+  port: 4,
   testOnly: true,
   deepProperty: {
     enabled: true,

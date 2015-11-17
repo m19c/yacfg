@@ -38,16 +38,21 @@ describe('yacfg', function describeYacfg() {
 
   it('merges the configuration correctly', function mergeTest() {
     yacfg.init({
-      environment: 'test'
+      environment: 'development',
+      sequence: ['production', 'staging', 'development', 'test'],
+      uncached: true
     });
 
-    yacfg.config.port.should.equal(3);
-    yacfg.config.productionOnly.should.be.ok();
-    yacfg.config.developmentOnly.should.be.ok();
-    yacfg.config.testOnly.should.be.ok();
-    yacfg.config.deepProperty.enabled.should.be.ok();
-    yacfg.config.deepProperty.keys.should.have.length(1);
-    yacfg.config.deepProperty.keys[0].should.equal('test');
+    yacfg.config.should.deepEqual({
+      port: 3,
+      productionOnly: true,
+      stagingOnly: true,
+      developmentOnly: true,
+      deepProperty: {
+        enabled: true,
+        keys: ['development']
+      }
+    });
   });
 
   it('runs without options', function withoutOptionsTest() {
@@ -61,7 +66,7 @@ describe('yacfg', function describeYacfg() {
       uncached: true
     });
 
-    yacfg.config.port.should.equal(2);
+    yacfg.config.port.should.equal(3);
   });
 
   it('ignore changes if the configuration is freezed', function freezedTest() {
